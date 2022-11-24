@@ -3,10 +3,21 @@
 <div class="border border-dark text-center w-25 container mt-5 ">
     <i class="fa-sharp fa-solid fa-building-columns mt-3 " ></i>
     <div class="mt-5 mb-3 ms-3 me-3">
-
+     <div>
     <input formControlName="acno" name="acno" class="form-control" placeholder="accound number" type="text">
-    <br>
+</div>
+<br>
+<!-- accound validation:using structural directive (*ngIf) -->
+    <div *ngIf="this.loginform.get('acno')?.errors&&this.loginform.get('acno')?.touched" class="text-danger">
+      Invalid Accound Number
+    </div>
+    <div>
     <input formControlName="pswd" name="pswd" class="form-control" placeholder="password" type="password">
+</div>
+<div *ngIf="this.loginform.get('pswd')?.errors&&this.loginform.get('pswd')?.touched" class="text-danger">
+    Invalid password
+  </div>
+
     <br><br>
     <button type="submit" class="btn btn-info" type="submit">log In</button>
     new User? &nbsp; <a href="">register here!</a>
