@@ -1,0 +1,145 @@
+<nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <i class="fa-sharp fa-solid fa-building-columns " ></i>
+        &nbsp;
+
+      <a class="navbar-brand " href="#">Online Bank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu bg-info">
+   
+              <li><a class="dropdown-item" routerLink="/deposit">Deposite</a></li>
+              <li><a class="dropdown-item" href="/withdraw">withdraw</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample " (click)="getBalance()">Balance Enguiry</a></li>
+              <li><a class="dropdown-item" href="transactionhitory">Transaction History</a></li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="deleteAcno()">
+                <i class="fa-solid fa-trash"></i>
+                Delete Account</a></li>
+              <li><a class="dropdown-item" (click)="logout()">Sign Out
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </a>
+                
+              </li>
+
+            </ul>
+          </li>
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- delete account pop up -->
+  <app-deleteconfirm [serverMsg]="deleteMsg" (onDelete)="deleteparant($event)" (onCancel)="cancel()" [item]="acno" ></app-deleteconfirm>
+
+  <!-- logout popup -->
+
+
+  <div class="container mt-5" *ngIf="islogout" >
+   <div class="row text-center">
+    <div class="col">
+
+   <img class="w-25 d-block m-auto" src="https://www.superiorlawncareusa.com/wp-content/uploads/2020/05/loading-gif-png-5.gif" alt="no image">
+ <h4>please wait... you're signing out</h4>
+    </div>
+   </div>
+
+  </div>
+
+  
+
+  <!-- balance enquiary -->
+
+
+  <div class="offcanvas offcanvas-start bg-info" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color:darkblue ;">Account Statement</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container">
+        <img width="250px" src="https://webstockreview.net/images/accounting-clipart-trial-balance-1.png" alt="no image">
+      </div>
+      <div class="dropdown mt-5" style="color:darkblue ;">
+       Hi {{user}},
+       <br>
+     <span>{{balance}}</span>
+
+       
+      </div>
+    </div>
+  </div>
+
+  <!-- end balance enquary -->
+
+  <div *ngIf="!confirmMsg">
+ <div class="container" *ngIf="!islogout"  [ngClass]="acno?'hide':'' ">
+  <div class="row">
+<div class="col-6 mt-5">
+  <h1 class="text-secondary"><b>welcome  <span class="text-info">{{user}}</span></b> &nbsp;
+    <i class="fa-solid fa-user"></i>
+  </h1>
+  <p class="mt-4 text-secondary w-85">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+     Quaerat atque minima architecto vitae obcaecati libero tempore dolorem. Iste esse neque,
+      quae deserunt sunt accusamus, nemo sed hic amet quam quia.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Quaerat atque minima architecto vitae obcaecati libero tempore dolorem. Iste esse neque,
+       quae deserunt sunt accusamus, nemo sed hic amet quam quia.
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+     Quaerat atque minima architecto vitae obcaecati libero tempore dolorem. Iste esse neque,
+      quae deserunt sunt accusamus, nemo sed hic amet quam quia.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Quaerat atque minima architecto vitae obcaecati libero tempore dolorem. Iste esse neque,
+       quae deserunt sunt accusamus, nemo sed hic amet quam quia..........
+  </p>
+</div>
+<div class="col-6 mt-5 ">
+
+  <img width="500px" height="500px" src="https://i0.wp.com/zilbank.com/wp-content/uploads/2022/05/Online-Bank-Account-Zil.gif?resize=500%2C500&ssl=1" alt=" no image">
+
+</div>
+
+
+  </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

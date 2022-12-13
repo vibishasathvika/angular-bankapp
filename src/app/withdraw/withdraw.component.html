@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <i class="fa-sharp fa-solid fa-building-columns " ></i>
+        &nbsp;
+
+      <a class="navbar-brand " href="#">Online Bank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+         
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5"> 
+    <h1 class="text-info">
+        withdraw Form
+    </h1>
+    <br>
+    <p class="text-secondary">
+      A bank is a financial institution that accepts deposits from the public and creates a demand deposit while simultaneously making loans.[1] Lending activities can be directly performed by the bank or indirectly through capital markets.
+
+      Because banks play an important role in financial stability and the economy of a country, most jurisdictions exercise a high degree of regulation over banks. Most countries have institutionalized a system known as fractional reserve banking, under which banks hold liquid assets equal to only a portion of their current liabilities. In addition to other regulations intended to ensure liquidity, banks are generally
+       subject to minimum capital requirements based on an international set of capital standards, the Basel Accords.
+    </p>
+    <div class="row">
+        <div class="col-4">
+            <img width="420px" src="https://cdn.dribbble.com/users/3821672/screenshots/7172841/media/63807102d2930b6d71d04bee43af9b0f.gif" alt=" no image">
+          <br>
+          <a routerLink="/dashboard" class=" btn btn-info mt-3 ms-5">
+            <i class="fa-sharp fa-solid fa-hand-back-point-left"></i>
+            Back</a>
+        </div>
+        <div class="col-8  border border-4 mt-5 w-50 ">
+            <form (ngSubmit)="withdraw()" [formGroup]="withdrawform" >
+                <div class="mb-3 mt-5">
+                  <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                  <input formControlName="amount" name="amount" type="email" placeholder="Amount" class="form-control">
+                   <div *ngIf="this.withdrawform.get('amount')?.errors&&this.withdrawform.get('amount')?.touched" class="text-danger">
+      Invalid Amount
+    </div>
+                </div>
+                <div class="mb-3">
+                  <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                  <input formControlName="acno" name="acno" type="text" placeholder="Accound Number" class="form-control" >
+                </div>
+                <div *ngIf="this.withdrawform.get('acno')?.errors&&this.withdrawform.get('acno')?.touched" class="text-danger">
+                  Invalid Accound Number
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                    <input formControlName="pswd" name="pswd" type="password" placeholder="Password" class="form-control">
+                  </div>
+                  <div *ngIf="this.withdrawform.get('pswd')?.errors&&this.withdrawform.get('pswd')?.touched" class="text-danger">
+                    Invalid Password
+                  </div>
+                <div class="mb-3 form-check">
+                  <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
+                  <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                </div>
+
+                <!-- servervresponse -->
+                <div class="text-danger">
+                 <b>{{emsg}}</b>
+                </div>
+                <button type="submit" class="btn btn-primary">withdraw</button>
+                <br><br>
+              </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+

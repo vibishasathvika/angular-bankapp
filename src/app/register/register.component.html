@@ -1,0 +1,91 @@
+<nav class="navbar " style="background-color:skyblue">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="fa-sharp fa-solid fa-building-columns  " ></i>
+      
+
+      <!-- <img src="#" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> -->
+   Online Bank
+    </a>
+  </div>
+</nav>
+<!-- navbar ends -->
+<div class="container mt-5"> 
+    <h1 class="text-info text-center ">
+        Register Form
+    </h1>
+    <br>
+    <!-- <p class="text-secondary">
+      A bank is a financial institution that accepts deposits from the public and creates a demand deposit while simultaneously making loans.[1] Lending activities can be directly performed by the bank or indirectly through capital markets.
+
+      Because banks play an important role in financial stability and the economy of a country, most jurisdictions exercise a high degree of regulation over banks. Most countries have institutionalized a system known as fractional reserve banking, under which banks hold liquid assets equal to only a portion of their current liabilities. In addition to other regulations intended to ensure liquidity, banks are generally
+       subject to minimum capital requirements based on an international set of capital standards, the Basel Accords.
+    </p> -->
+    <div class="row">
+        <div class="col-4 mt-3">
+
+          
+            <img width="400px" src="https://i.pinimg.com/originals/5c/37/14/5c3714cba608140b1d6c15ce3f699068.gif" alt=" no image">
+          <br> <br>
+          <a routerLink="" class=" btn btn-outline-info mt-3 ms-5">
+            <i class="fa-sharp fa-solid fa-hand-back-point-left"></i>
+            Back</a>
+        </div>
+        <div class="col-8  border border-bottom-0 border-4  mt-5 w-50">
+            <form (ngSubmit)="register()" [formGroup]="Registerform" >
+                <div class="mb-3 mt-5">
+                  <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                  <input formControlName="username" name="username" type="email" placeholder="Username" class="form-control">
+                   <div *ngIf="this.Registerform.get('username')?.errors&&this.Registerform.get('username')?.touched" class="text-danger">
+      Invalid Username
+    </div>
+                </div>
+                <div class="mb-3">
+                  <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                  <input formControlName="acno" name="acno" type="text" placeholder="Accound Number" class="form-control" >
+                </div>
+                <div *ngIf="this.Registerform.get('acno')?.errors&&this.Registerform.get('acno')?.touched" class="text-danger">
+                  Invalid Accound Number
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                    <input formControlName="pswd" name="pswd" type="password" placeholder="Password" class="form-control">
+                  </div>
+                  <div *ngIf="this.Registerform.get('pswd')?.errors&&this.Registerform.get('pswd')?.touched" class="text-danger">
+                    Invalid Password
+                  </div>
+                <div class="mb-3 form-check">
+                  <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> -->
+                  <!-- <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                </div>
+
+                <!-- servervresponse -->
+                <div class="text-danger">
+                 <b>{{emsg}}</b>
+                </div>
+                <button  type="submit" class="btn btn-outline-primary ">Register</button>
+                <br><br>
+              </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:skyblue;">
+    <div class="container-fluid">
+        <i class="fa-sharp fa-solid fa-building-columns " ></i>
+        &nbsp;
+
+      <a class="navbar-brand " href="#">Online Bank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+
+ 
+<div class="container  ">
+    <h2 class="text-info mt-5 text-center mb-5"> <b>TRANSACTION</b> </h2>
+
+    <div class="border w-80 ">
+        <div class="mt-5 mb-5 ms-5 me-5">
+             <!-- <h4 class="text-success">Transaction History</h4>    
+
+              search by : <input class="form-control" width="200px" type="text" placeholder="Transaction type">
+              <br>
+                
+              <button class="btn btn-success" type="submit">Export</button>  -->
+              <form class="row g-3">
+                <div class="col-auto">
+                  <h4 class="text-success">Transaction History</h4>&nbsp;&nbsp;
+                  <!-- <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com"> -->
+                </div>
+                <div class="col-auto">
+                  <input (keyup)="search($event)" id="search" type="text"  placeholder="  transaction type">
+                </div>
+                <div class="col-auto">
+                  <button (click)="generatePdf()" type="submit" class="btn btn-success ">Export</button>
+                </div>
+              </form>
+          
+        <table  class="table table-success table-striped text-center">
+           
+            <thead>
+                <tr>
+                <td>no</td>
+                <td>Transaction type</td>
+                <td>Amount</td>
+            </tr>
+            </thead>
+       <tbody>
+            <tr *ngFor="let trans of transaction | filter:searchKey:'type' ; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{trans.type}}</td>
+                <td>{{trans.amount}}</td>
+            </tr>
+          </tbody>
+           
+        
+        </table>
+
+        <a routerLink="/dashboard" class=" btn btn-info mt-3 ms-5">
+          <i class="fa-sharp fa-solid fa-hand-back-point-left"></i>
+          Back</a>
+    </div>
+    </div>
+
+
+</div>
